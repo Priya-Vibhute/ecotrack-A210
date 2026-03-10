@@ -2,6 +2,7 @@ package com.learn.ecotrack.services.impl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.learn.ecotrack.dtos.UserDto;
 import com.learn.ecotrack.entities.Role;
@@ -11,6 +12,7 @@ import com.learn.ecotrack.repositories.RoleRepository;
 import com.learn.ecotrack.repositories.UserRepository;
 import com.learn.ecotrack.services.UserService;
 
+@Service
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
@@ -36,5 +38,15 @@ public class UserServiceImpl implements UserService {
 		
 		return modelMapper.map(savedUser, UserDto.class);
 	}
+	
+	public boolean checkEmailExists(String email)
+	{
+		return userRepository.existsByEmail(email);
+	}
+	
+	
+
+	
+	
 
 }

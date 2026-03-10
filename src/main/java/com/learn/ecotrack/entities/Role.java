@@ -2,6 +2,7 @@ package com.learn.ecotrack.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.learn.ecotrack.enums.AppRole;
 
 import jakarta.persistence.Entity;
@@ -29,6 +30,7 @@ public class Role {
 	private AppRole roleName;
 	
 	@OneToMany(mappedBy = "role")
+	@JsonIgnore
 	private List<User> users;
 
 }
