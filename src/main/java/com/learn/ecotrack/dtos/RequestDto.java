@@ -1,10 +1,11 @@
-package com.learn.ecotrack.entities;
+package com.learn.ecotrack.dtos;
 
-import java.time.LocalDateTime;
-
-import org.hibernate.annotations.CreationTimestamp;
+import com.learn.ecotrack.entities.User;
+import com.learn.ecotrack.enums.Status;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -17,25 +18,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Enrollment {
+public class RequestDto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	private String itemType;
+	private Integer quantity; 
+	private String image;
 	
-	@ManyToOne
-	private Workshop workshop;
+	@Enumerated(EnumType.STRING)
+	private Status status;
 	
 	@ManyToOne
 	private User user;
-	
-	private Integer amount;
-	
-	@CreationTimestamp
-	private LocalDateTime enrollmentDate;
-	
-	
-	
-	
 
 }

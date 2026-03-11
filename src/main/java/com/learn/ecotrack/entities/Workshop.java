@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,6 +35,7 @@ public class Workshop {
 	private LocalDateTime startDate;
 	
 	@OneToMany(mappedBy = "workshop")
+	@JsonIgnore
 	private List<Enrollment> enrollments;
 	
 	

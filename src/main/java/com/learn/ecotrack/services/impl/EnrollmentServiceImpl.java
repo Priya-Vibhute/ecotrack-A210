@@ -2,6 +2,7 @@ package com.learn.ecotrack.services.impl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.learn.ecotrack.dtos.EnrollmentDto;
 import com.learn.ecotrack.entities.Enrollment;
@@ -12,6 +13,7 @@ import com.learn.ecotrack.repositories.UserRepository;
 import com.learn.ecotrack.repositories.WorkshopRepository;
 import com.learn.ecotrack.services.EnrollmentService;
 
+@Service
 public class EnrollmentServiceImpl implements EnrollmentService{
 	
 	@Autowired

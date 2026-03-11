@@ -2,6 +2,8 @@ package com.learn.ecotrack.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,9 +41,11 @@ public class User {
 	private Role role;
 	
 	@OneToMany(mappedBy = "user")
+	@JsonIgnore
 	private List<Request> requests;
 	
 	@OneToMany(mappedBy = "user")
+	@JsonIgnore
 	private List<Enrollment> enrollments;
 	
 	
