@@ -1,5 +1,7 @@
 package com.learn.ecotrack.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,13 @@ public class EnrollmentController {
 		return new ResponseEntity<EnrollmentDto>
 		             (enrollmentService.enroll(email, workshopId),
 		            		                         HttpStatus.CREATED);
+	}
+	
+	@PostMapping("/confirm")
+	public ResponseEntity<?> verifyPayment(Map<String, String> payload)
+	{
+		 
+		return null;
 	}
 
 }

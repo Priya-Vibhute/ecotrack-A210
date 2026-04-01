@@ -4,7 +4,11 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.learn.ecotrack.enums.PaymentStatus;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -34,8 +38,9 @@ public class Enrollment {
 	@CreationTimestamp
 	private LocalDateTime enrollmentDate;
 	
-	
-	
-	
+	private String paymentId;
+	private String orderId;
+	@Enumerated(EnumType.STRING)
+	private PaymentStatus status;	
 
 }

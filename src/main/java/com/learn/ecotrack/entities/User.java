@@ -1,6 +1,12 @@
 package com.learn.ecotrack.entities;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -20,7 +26,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User {
+public class User implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	private String id;
@@ -47,6 +53,25 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	@JsonIgnore
 	private List<Enrollment> enrollments;
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		
+		return Arrays.asList(new SimpleGrantedAuthority(role.getRoleName().toString()));
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return email;
+	}
+	
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return password;
+	}
+	
 	
 	
 	

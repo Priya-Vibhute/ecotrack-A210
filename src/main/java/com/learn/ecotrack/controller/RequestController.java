@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +29,20 @@ public class RequestController {
 		return new ResponseEntity<RequestDto>(requestService.raiseRequest(email, requestDto),
 				HttpStatus.CREATED);
 	}
+	
+	@PutMapping("/{requestId}/approve")
+	public ResponseEntity<RequestDto> approveRequest(@PathVariable Integer requestId)
+	{
+		return ResponseEntity.ok(requestService.approveRequest(requestId));
+	}
+	
+	
+	@PutMapping("/{requestId}/reject")
+	public ResponseEntity<RequestDto> rejectRequest(@PathVariable Integer requestId)
+	{
+		return ResponseEntity.ok(requestService.rejectRequest(requestId));
+	}
+	
 	
 
 }

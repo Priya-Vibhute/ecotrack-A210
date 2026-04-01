@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.learn.ecotrack.dtos.WorkshopDto;
 import com.learn.ecotrack.entities.Workshop;
+import com.learn.ecotrack.projections.WorkshopProjection;
 import com.learn.ecotrack.repositories.WorkshopRepository;
 import com.learn.ecotrack.services.WorkshopService;
 
@@ -66,6 +67,7 @@ public class WorkshopServiceImpl implements WorkshopService {
 
 	@Override
 	public List<WorkshopDto> getAllWorshops() {
+//		List<WorkshopProjection> workshops = workshopRepository.findAllBy();
 		List<Workshop> workshops = workshopRepository.findAll();
 		return workshops.stream()
 				.map(w->modelMapper.map(w, WorkshopDto.class))

@@ -6,8 +6,11 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.learn.ecotrack.entities.User;
 import com.learn.ecotrack.entities.Workshop;
+import com.learn.ecotrack.enums.PaymentStatus;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
@@ -34,8 +37,8 @@ public class EnrollmentDto {
 	@CreationTimestamp
 	private LocalDateTime enrollmentDate;
 	
+	private String paymentId;
+	private String orderId;
+	private PaymentStatus status;		
 	
-	
-	
-
 }

@@ -20,7 +20,6 @@ import lombok.NoArgsConstructor;
 
 public class WorkshopDto {
 	
-	
 	private Integer id;
 	private String name;
 	private String description;
@@ -30,7 +29,7 @@ public class WorkshopDto {
 	private LocalDateTime startDate;
 	
 	
-	private List<Enrollment> enrollments;
+//	private List<Enrollment> enrollments;
 	
 	
 	

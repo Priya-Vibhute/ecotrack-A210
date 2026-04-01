@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.learn.ecotrack.entities.Workshop;
+import com.learn.ecotrack.projections.WorkshopProjection;
 
 public interface WorkshopRepository extends JpaRepository<Workshop, Integer>{
 
@@ -14,5 +15,5 @@ public interface WorkshopRepository extends JpaRepository<Workshop, Integer>{
 	
 	List<Workshop> findByPriceBetween
     (Integer sp,Integer ep);
-	
+	List<WorkshopProjection> findAllBy();
 }
