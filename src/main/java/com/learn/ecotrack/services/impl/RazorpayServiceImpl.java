@@ -2,6 +2,7 @@ package com.learn.ecotrack.services.impl;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import com.learn.ecotrack.services.RazorpayService;
 import com.razorpay.Order;
@@ -9,6 +10,7 @@ import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
 import com.razorpay.Utils;
 
+@Service
 public class RazorpayServiceImpl implements RazorpayService {
 	
 	@Value("${Razorpay.key}")

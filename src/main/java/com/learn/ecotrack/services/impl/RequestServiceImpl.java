@@ -1,5 +1,7 @@
 package com.learn.ecotrack.services.impl;
 
+import java.util.List;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,6 +64,15 @@ public class RequestServiceImpl implements RequestService {
 		Request savedRequest = requestRepository.save(request);
 		
 		return modelMapper.map(savedRequest, RequestDto.class);
+	}
+
+	@Override
+	public List<RequestDto> getRequestByEmail(String email) {
+		
+		return requestRepository.findByUserEmail(email)
+				.stream()
+				.map(r->modelMapper.map(r, RequestDto.class))
+				.toList();
 	}
 
 }

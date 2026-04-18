@@ -20,21 +20,21 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+
 public class EnrollmentDto {
 	
-	@Id
+
 	private Integer id;
 	
-	@ManyToOne
+
 	private Workshop workshop;
 	
-	@ManyToOne
+	
 	private User user;
 	
 	private Integer amount;
 	
-	@CreationTimestamp
+
 	private LocalDateTime enrollmentDate;
 	
 	private String paymentId;

@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 public class RequestDto {
 	
 	@Id
@@ -26,6 +25,7 @@ public class RequestDto {
 	private String itemType;
 	private Integer quantity; 
 	private String image;
+	private String address;
 	
 	@Enumerated(EnumType.STRING)
 	private Status status;

@@ -25,6 +25,7 @@ public class Request {
 	private String itemType;
 	private Integer quantity; 
 	private String image;
+	private String address;
 	
 	@Enumerated(EnumType.STRING)
 	private Status status;

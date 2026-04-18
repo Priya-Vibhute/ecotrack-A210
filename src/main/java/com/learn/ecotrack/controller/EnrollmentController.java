@@ -32,8 +32,8 @@ public class EnrollmentController {
 	@PostMapping("/confirm")
 	public ResponseEntity<?> verifyPayment(Map<String, String> payload)
 	{
-		 
-		return null;
+		enrollmentService.confirmPayment(payload);
+		return ResponseEntity.ok("Payment Success");
 	}
 
 }

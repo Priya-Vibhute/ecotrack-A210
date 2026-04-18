@@ -1,5 +1,7 @@
 package com.learn.ecotrack.services;
 
+import java.util.List;
+
 import com.learn.ecotrack.dtos.RequestDto;
 
 public interface RequestService {
@@ -9,5 +11,7 @@ public interface RequestService {
 	 RequestDto approveRequest(Integer requestId);
 	 
 	 RequestDto rejectRequest(Integer requestId);
+	 
+	 List<RequestDto> getRequestByEmail(String email);
 
 }

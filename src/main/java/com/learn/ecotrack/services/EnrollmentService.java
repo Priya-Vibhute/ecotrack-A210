@@ -7,6 +7,6 @@ import com.learn.ecotrack.dtos.EnrollmentDto;
 public interface EnrollmentService {
 	
 	EnrollmentDto enroll(String email,Integer workshopId);
-	 boolean confirmPayment(Map<String, String> payload);
+	void confirmPayment(Map<String, String> payload);
 
 }

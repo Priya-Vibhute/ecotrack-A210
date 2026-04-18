@@ -71,9 +71,31 @@ public class EnrollmentServiceImpl implements EnrollmentService{
 	}
 
 	@Override
-	public boolean confirmPayment(Map<String, String> payload) {
-		// TODO Auto-generated method stub
-		return false;
+	public void confirmPayment(Map<String, String> payload) {
+		
+		String orderId = payload.get("razorpay_order_id");
+		String paymentId=payload.get("razorpay_payment_id");
+		String signature=payload.get("razorpay_signature");
+		
+		boolean verifyPaymentSignature = 
+				razorpayService.verifyPaymentSignature(orderId, paymentId, signature);
+		
+		Enrollment enrollment = enrollmentRepository.findByOrderId(orderId)
+		.orElseThrow(()->new RuntimeException("OrderId not found"));
+		
+		if(verifyPaymentSignature)
+		{
+			enrollment.setPaymentId(paymentId);
+			enrollment.setStatus(PaymentStatus.SUCCESS);
+		}
+		else 
+		{
+			enrollment.setStatus(PaymentStatus.FAILED);
+		}
+		
+		enrollmentRepository.save(enrollment);
+		
+		
 	}
 
 }
